@@ -1,6 +1,6 @@
-$primary: var(--light-green);
-
-@use "bootstrap/scss/bootstrap.scss";
+@use "bootstrap/scss/bootstrap.scss" with (
+  $primary: #49ba9e
+);
 @use "@ngxpert/hot-toast/styles";
 @use "bootstrap-icons/font/bootstrap-icons.css";
 
