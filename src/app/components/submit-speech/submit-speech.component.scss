@@ -1,0 +1,13 @@
+.container {
+  max-width: 800px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.form-control.is-invalid {
+  border-color: var(--light-red);
+  padding-right: calc(1.5em + 0.75rem);
+}

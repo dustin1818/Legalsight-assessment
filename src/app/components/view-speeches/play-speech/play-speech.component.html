@@ -1,0 +1,4 @@
+<button class="btn btn-success w-100 w-md-auto" (click)="playAudio()">
+    <i class="bi" [ngClass]="isPlaying ? 'bi-pause-fill' : 'bi-play-fill'"></i>
+    {{ isPlaying ? 'Pause' : 'Play' }}
+</button>

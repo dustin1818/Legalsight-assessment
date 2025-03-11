@@ -1,0 +1,27 @@
+.slash-marks {
+  font-size: 24px;
+  letter-spacing: -3px;
+}
+
+.instruction-content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.note {
+  background-color: rgba(255, 255, 255, 0.1);
+
+  p {
+    color: var(--black);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .min-vh-100 {
+    min-height: auto !important;
+  }
+
+  .instruction-content {
+    font-size: 14px;
+  }
+}

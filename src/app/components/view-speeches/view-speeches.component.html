@@ -1,0 +1,58 @@
+@if (hasEmptySpeech) {
+<div class="container p- d-flex flex-column justify-center align-items-center mt-5 p-5" (click)="onShowInfo()">
+    <img class="img-fluid w-sm-75 w-md-100" src="create-speech.svg" alt="create-speech.svg">
+    <h1 class="text-center mb-0 mt-5">Please submit a new speech</h1>
+</div>
+} @else {
+<div class="container-fluid container-lg mt-5">
+    <div class="row">
+        <div class="col-md-3 mb-4 mb-md-0">
+            <app-side-tab [speeches]="speeches" [selectedSpeechId]="editableSpeech?.id"
+                (selectSpeech)="onSelectSpeech($event)">
+            </app-side-tab>
+        </div>
+
+        <div class="col-md-9">
+            @if (hasEmptySelectedSpeech) {
+            <div class="d-flex flex-column justify-content-center align-items-center mt-3 mt-md-0">
+                <img class="img-fluid w-50" src="listening.svg" alt="listening.svg" style="transform: scaleX(-1)">
+                <i class="bi bi-arrow-bar-up fs-1 mt-4"></i>
+                <h2 class="text-center mb-0 mt-1">Please select a speech</h2>
+            </div>
+            } @else {
+            <div class="d-flex flex-column">
+                <div class="form-floating mb-3">
+                    @if (editableSpeech) {
+                    <textarea class="form-control" style="min-height: 200px;" placeholder="Leave a comment here"
+                        id="floatingTextarea2" [(ngModel)]="editableSpeech.message">
+                            </textarea>
+                    }
+                    <label for="floatingTextarea2">Speech content:</label>
+                </div>
+
+                <div class="input-group mb-3">
+                    @if (editableSpeech) {
+                    <div class="d-flex flex-column flex-md-row w-100 gap-2">
+                        <input type="text" aria-label="author" placeholder="Author"
+                            class="form-control w-100 w-md-25 mb-2 mb-md-0" [(ngModel)]="editableSpeech.author">
+                        <input type="text" aria-label="subject keywords" placeholder="Keywords"
+                            class="form-control w-100 w-md-25 mb-2 mb-md-0" [(ngModel)]="editableSpeech.keywords">
+                        <input type="date" aria-label="date" class="form-control w-100 w-md-25"
+                            [ngModel]="editableSpeech.date | dateFormat" (ngModelChange)="editableSpeech.date = $event">
+                    </div>
+                    }
+                </div>
+
+                <div class="d-flex flex-column flex-md-row justify-content-md-end gap-2 mt-2">
+                    <app-play-speech [speech]="editableSpeech" *ngIf="editableSpeech"
+                        class="mb-2 mb-md-0"></app-play-speech>
+                    <button class="btn btn-danger" (click)="onClickDelete()">Delete</button>
+                    <button class="btn btn-primary text-white" (click)="onClickSave()">Save</button>
+                    <button class="btn btn-secondary" (click)="onClickShare()">Share</button>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+}

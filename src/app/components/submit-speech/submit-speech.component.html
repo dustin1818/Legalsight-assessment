@@ -1,0 +1,58 @@
+<div class="container-sm-fluid container-md mt-5">
+    <form [formGroup]="speechForm" (ngSubmit)="onSubmit()" class="needs-validation mt-5">
+        <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text" class="form-control" id="author" formControlName="author"
+                [class.is-invalid]="speechForm.get('author')?.invalid && speechForm.get('author')?.touched"
+                placeholder="Enter speech author">
+            @if (speechForm.get('author')?.errors?.['required'] && speechForm.get('author')?.touched) {
+            <div class="invalid-feedback">
+                Author is required
+            </div>
+            }
+            @if (speechForm.get('author')?.errors?.['minlength'] && speechForm.get('author')?.touched) {
+            <div class="invalid-feedback">
+                Author must be at least 3 characters long
+            </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="content" class="form-label">Speech Content</label>
+            <textarea class="form-control" id="content" rows="15" formControlName="content"
+                [class.is-invalid]="speechForm.get('content')?.invalid && speechForm.get('content')?.touched"
+                placeholder="Enter speech content"></textarea>
+            @if (speechForm.get('content')?.errors?.['required'] && speechForm.get('content')?.touched) {
+            <div class="invalid-feedback">
+                Content is required
+            </div>
+            }
+            @if (speechForm.get('content')?.errors?.['minlength'] && speechForm.get('content')?.touched) {
+            <div class="invalid-feedback">
+                Content must be at least 10 characters long
+            </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="keyword" class="form-label">Keywords</label>
+            <input type="text" class="form-control" id="keyword" formControlName="keyword"
+                [class.is-invalid]="speechForm.get('keyword')?.invalid && speechForm.get('keyword')?.touched"
+                placeholder="Enter speech keyword">
+            @if (speechForm.get('keyword')?.errors?.['required'] && speechForm.get('keyword')?.touched) {
+            <div class="invalid-feedback">
+                Keyword is required
+            </div>
+            }
+            @if (speechForm.get('keyword')?.errors?.['minlength'] && speechForm.get('keyword')?.touched) {
+            <div class="invalid-feedback">
+                Keyword must be at least 3 characters long
+            </div>
+            }
+        </div>
+
+        <button type="submit" class="btn btn-primary text-white" [disabled]="speechForm.invalid">
+            Submit Speech
+        </button>
+    </form>
+</div>

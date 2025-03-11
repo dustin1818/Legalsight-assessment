@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@use "bootstrap/scss/bootstrap.scss";
+@use "@ngxpert/hot-toast/styles";
+@use "bootstrap-icons/font/bootstrap-icons.css";
+
+:root {
+  --black: #121212;
+  --light-green: #49ba9e;
+  --dark-green: #327766;
+  --light-red: #dc3545;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(48, 237, 136, 0.03);
+}
+
+.btn-outline-primary:hover {
+  color: white;
+}

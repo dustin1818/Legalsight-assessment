@@ -1,0 +1,44 @@
+<div class="container mt-5">
+    <div class="input-group my-5">
+        <span class="input-group-text">
+            <i class="bi bi-search"></i>
+        </span>
+        <input type="text" class="form-control" placeholder="Search by author, content, or keywords..."
+            [formControl]="searchControl">
+    </div>
+
+    @if(isLoading){
+    <div class="text-center my-4">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    }
+
+    @if(!isLoading && speeches.length === 0){
+    <div class="text-center my-4">
+        <p>No speeches found matching your search criteria.</p>
+    </div>
+    }
+
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 g-3">
+        @for (speech of speeches; track speech.id) {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ speech.author }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ speech.date | date }}</h6>
+                    <p class="card-text">{{ speech.message | slice:0:150 }}{{ speech.message.length > 150 ? '...' : ''
+                        }}</p>
+                    <div class="d-flex flex-wrap gap-1 mt-2">
+                        @for (keyword of speech.keywords.split(','); track $index) {
+                        <span class="badge bg-primary">{{ keyword.trim() }}</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row min-vh-100">
+        <div class="col-md-6 bg-primary text-dark p-4 p-md-5 d-flex flex-column">
+            <div class="my-auto py-5">
+                <div class="mb-5 text-center">
+                    <div class="d-flex justify-content-center">
+                        <div class="slash-marks text-white fw-bold">
+                            ///////////
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instruction-content">
+                    <div class="note p-4 rounded mb-4">
+                        <p class="small"><span class="fw-bold">NOTE:</span>
+                            <br><br>
+                            You can use any email or name to access the assessment, this is
+                            just a prototype no user account
+                            is properly registered all frontend!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 bg-white d-flex align-items-center justify-content-center">
+            <div class="form-container p-4 p-md-5 w-100" style="max-width: 500px;">
+                <div class="text-center mb-5">
+                    <img src="logo.png" alt="LegalSight Logo" class="img-fluid w-100 mb-4">
+                </div>
+
+                <form (ngSubmit)="onGoToAssessment()">
+                    <div class="mb-4">
+                        <label for="name" class="form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name"
+                            [(ngModel)]="name" name="name" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email"
+                            [(ngModel)]="email" name="email" required>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-5">
+                        <button class="btn btn-primary text-white btn-lg py-3" type="submit">Go to Assessment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

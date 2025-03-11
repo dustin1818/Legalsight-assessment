@@ -1,0 +1,13 @@
+.btn-primary {
+  background-color: #0d6efd;
+  border: #0d6efd;
+}
+
+img {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1) !important;
+  }
+}
